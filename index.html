@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Set the size and center the carousel */
+        #carouselExample {
+            width: 55%; /* 60% of the page width */
+            height: 550px; /* Fixed height */
+            background-color: rgb(12, 11, 11); /* Background color */
+            border-radius: 10px; /* Set border-radius to 5px */
+            position: relative;
+            z-index: 1;
+        }
+
+      
+        /* Customize previous and next buttons */
+        .carousel-control-prev, .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background-color: rgb(73, 180, 230); /* Blue background */
+            border-radius: 48%; /* Circular shape */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.7;
+            margin-top: 20%;
+        }
+        .scroll-container {
+            width: 100%; /* Full width of the page or parent container */
+            overflow: hidden; /* Hides the overflow content */
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* The scrolling content holding the images */
+        .scroll-content {
+            display: flex; /* Flexbox to arrange the logos horizontally */
+            animation: scroll 15s linear infinite; /* Infinite scroll animation */
+        }
+
+        /* Animation for infinite scrolling */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Move the logos to the left */
+            }
+        }
+
+        /* Styling for each logo image */
+        .logo {
+            width: 150px; /* Set width of the logo */
+            height: 100px; /* Set height of the logo */
+            margin-right: 30px; /* Space between logos */
+            object-fit: contain; /* Preserve the aspect ratio of images */
+        }
+
+        /* Duplicating the logos for seamless scroll */
+        .scroll-content img:nth-child(n+6) {
+            margin-left: 30px; /* Space between duplicated logos */
+        }
+    
+        .carousel-item {
+            height: 100%;
+            margin-top: 20%;
+        }
+
+        .carousel-item img {
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Styling for text below the logo */
+        .carousel-item p {
+            margin-top: 80px;
+            font-size: 25px;
+            font-weight: normal;
+            color: white;
+        }
+
+        /* Adjust text and image layout */
+        .d-flex img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .d-flex span {
+            color: white;
+            font-size: 22px;
+            margin-left: 10px;
+            color: rgb(171, 38, 189);
+        }
+
+        /* Flexbox for the carousel and card container */
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items at the top */
+            gap: 20px; /* Space between carousel and card */
+        }
+
+        .card-container {
+            width: 45%; /* Set the card container width */
+        }
+
+        .name {
+            display: flex;
+            flex-direction: row;
+            padding: 30px;
+            align-items: center;
+        }
+
+        .cend {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cend span {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a class="navbar-brand" href="#">
+            <img src="LOGOCOMPETITIONWHITE-removebg-preview.png" alt="Logo" width="70px" class="logo">
+        </a>
+        <div class="head">
+            <h3>Event</h3>
+            <h3>About Us</h3>
+            <h3>Sponser</h3>
+        </div>
+        <button class="btn_con">
+            Contact us
+        </button>
+    </div>
+
+    <div class="pby">
+        <h1 class="p" onmouseover="changeText(this)" onmouseout="resetText(this)"><span class="text-content">Organized</span></h1>
+        <h1 class="by">By</h1>
+        <h1 class="new-text" onmouseover="changeText(this)" onmouseout="resetText(this)"><span class="text-content">Produced</span></h1>
+        <h1 class="new-text" onmouseover="changeText(this)" onmouseout="resetText(this)"><span class="text-content">Presented</span></h1>
+    </div>
+
+    <div>
+        <p class="bud">Buds X Supercomp</p>
+        <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores harum voluptatibus, itaque doloribus labore ab quis temporibus! Laudantium beatae, distinctio quas tempore, dolor provident ipsum perspiciatis consequatur tenetur incidunt quaerat.</p>
+    </div>
+
+    <script>
+        // Function to change text content on hover
+        function changeText(element) {
+            const span = element.querySelector('.text-content');
+            if (span.textContent === "Organized") {
+                span.textContent = "Produced";
+            } else if (span.textContent === "Produced") {
+                span.textContent = "Presented";
+            } else if (span.textContent === "Presented") {
+                span.textContent = "Organized"; 
+            }
+        }
+
+        // Function to reset text content on mouse out
+        function resetText(element) {
+            // This function will remain empty as you don't want to reset the text on mouse out
+        }
+
+        // Function to scroll the card container when a card is clicked
+        function scrollCards(direction) {
+            const container = document.querySelector('.card-scroll-container');
+            const scrollAmount = direction === 'next' ? 300 : -300;
+            container.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+    <!-- Scrollable Container for Cards -->
+    <div class="card-scroll-container">
+        <div class="maincard">
+            <!-- Each Card -->
+            <div class="card" style="width: 18rem;" onclick="scrollCards('next')">
+                <img src="cid1.jpg" class="card-img-top" alt="..." width="300px">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" onclick="scrollCards('next')">
+                <img src="cid2.jpg" class="card-img-top" alt="..." width="300px" height="250px">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" onclick="scrollCards('next')">
+                <img src="cid3.jpeg" class="card-img-top" alt="..." width="300px" height="250px">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" onclick="scrollCards('next')">
+                <img src="cid4.jpg" class="card-img-top" alt="..." width="300px" height="250px">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" onclick="scrollCards('next')">
+                <img src="cid6.jpeg" class="card-img-top" alt="..." width="300px" height="250px">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center">Dare To <span>Create</span></h1><br><br>
+    
+    <!-- Flex container for carousel and card -->
+    <div class="flex-container">
+        <!-- Carousel Section -->
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="container text-center">
+                        <!-- Logo Section -->
+                        <img id="img1" src="BUDS LOGO (No bg and No text).png" alt="Logo" class="rounded-circle me-3">
+                        
+                        <!-- Paragraph Section -->
+                        <p class="mt-3">This is a paragraph describing the content related to the first logo. It gives some brief information or description.</p>
+                        
+                        <!-- Small Picture and Text -->
+                        <div class="d-flex justify-content-center align-items-center mt-4">
+                            <div class="cend">
+                                <div class="name">
+                                    <img src="shahood rehan.png" alt="Small Logo" class="rounded-circle me-3">
+                                    <span>~ Shahood Rehan</span>
+                                </div>
+                                <span style="margin-top: -25px;">BUDS President</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="container text-center">
+                        <!-- Logo Section -->
+                        <img id="img1" src="SuperComp logo.svg" alt="Logo" class="rounded-circle me-3">
+                        
+                        <!-- Paragraph Section -->
+                        <p class="mt-3">This is a paragraph for the second slide. More content can go here to describe something related to the second logo.</p>
+                        
+                        <!-- Small Picture and Text -->
+                        <div class="d-flex justify-content-center align-items-center mt-3">
+                            <div class="cend">
+                                <div class="name">
+                                    <img src="danish ali.png" alt="Small Logo" class="rounded-circle me-3">
+                                    <span>~ Danish Ali</span>
+                                </div>
+                                <span style="margin-top: -25px;">SUPERCAMP President</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        
+    </div>
+    </div>
+    <h1 class="h111">OUR PARTNERS</h1>
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <!-- Add your logos here -->
+            <img src="image 5.png" alt="Logo 1" class="logo">
+            <img src="image 6.png" alt="Logo 2" class="logo">
+            <img src="image 7.png" alt="Logo 3" class="logo">
+            <img src="image 8.png" alt="Logo 4" class="logo">
+            <img src="image 9.png" alt="Logo 5" class="logo">
+
+            <!-- Duplicate the logos for seamless scrolling effect -->
+            <img src="image 5.png" alt="Logo 1" class="logo">
+            <img src="image 6.png" alt="Logo 2" class="logo">
+            <img src="image 7.png" alt="Logo 3" class="logo">
+            <img src="image 8.png" alt="Logo 4" class="logo">
+            <img src="image 9.png" alt="Logo 5" class="logo">
+        </div>
+    </div>
+     <!-- Footer -->
+     <footer>
+        <div class="footer-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="LOGOCOMPETITIONEHITE-removebg-preview.png" alt="Logo">
+            </div>
+
+            <!-- Footer Columns -->
+            <div class="footer-columns">
+                <div class="column">
+                    <h3>Page</h3>
+                    <p>Home</p>
+                    <p>Event</p>
+                    <p>About Us</p>
+                    <p>Register</p>
+                </div>
+                <div class="column">
+                    <h3>Policies</h3>
+                    <p>Privacy Policy</p>
+                    <p>Terms of Use</p>
+                </div>
+                <div class="column">
+                    <h3>Code in the Dark</h3>
+                    <p>123 345 456</p>
+                    <p>abc@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- "DARK" Word -->
+    <div class="dark-word">
+        DARK
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

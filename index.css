@@ -1,0 +1,150 @@
+body {
+    background-image: url('1st bg.svg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+    color: white;
+    background-color: black;
+}
+
+#img1{
+    height:100px;
+    width:100px;
+}
+#main1{
+    background-color: black;
+}
+.name {
+    display: flex;
+    flex-direction: row;  /* Align img and span horizontally */
+    padding: 30px;
+    align-items: center;  /* Align vertically in the center */
+}
+
+.cend {
+    display: flex;
+    flex-direction: column;  /* Align the content vertically */
+    justify-content: center;
+    align-items: center;  /* Center everything horizontally */
+}
+
+.cend span {
+    margin-top: -17px;
+    font-size: 20px;  /* Space between the two spans */
+}
+
+.name img {
+    margin-top:-15px;
+    margin-right: 10px;  /* Space between the image and the name */
+}
+.card22{
+    display: flex;
+    flex-direction: column;
+}
+.crdprt2{
+   background-color: rgb(14, 4, 17);
+}
+
+.logo {
+    margin-right: 600px;
+}
+
+.header {
+    color: white;
+    display: flex;
+}
+
+.head {
+    display: flex;
+    gap: 220px;
+}
+
+.btn_con {
+    font-size: medium;
+    color: white;
+    background-color: rgb(161, 9, 161);
+    border: none;
+    border-radius: 40px;
+    padding: 20px;
+    margin-left: 450px;
+}
+
+.pby {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 25vh;
+    margin-left: 58%;
+    margin-right: 50%;
+    font-size: 20px;
+}
+
+.p {
+    color: rgb(161, 9, 161);
+    text-align: center;
+}
+
+.by {
+    color: white;
+}
+
+.transition {
+    transition: all 3s ease;
+}
+
+.bud {
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(160deg, rgb(161, 9, 161) 60%, rgba(23, 112, 245, 0.932));
+    color: white;
+    align-items: center;
+    padding: 20px;
+    margin-left: 43%;
+    margin-right: 44%;
+    font-size: 20px;
+    margin-top: -30px;
+}
+
+.text {
+    color: white;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.maincard {
+    display: flex;
+    margin-left: 100px;
+    border-radius: 80px;
+    gap: 80px;
+}
+
+.card-scroll-container {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    padding: 20px;
+    width: 100%;
+    border-radius: 80px;
+    justify-content: center;
+}
+
+.card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+.our{
+    display: flex;
+    margin-left: 45%;
+    gap: 10px;
+}
+.part{
+    color:rgb(161, 9, 161)  ;
+}
